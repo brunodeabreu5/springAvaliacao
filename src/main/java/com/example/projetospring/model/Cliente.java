@@ -16,7 +16,7 @@ public class Cliente {
     private String endereco;
     private String telefone;
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "clientes")
     private List<Veiculo> veiculo = new ArrayList<>();
 
     public Cliente (){}
@@ -27,6 +27,9 @@ public class Cliente {
         this.endereco = endereco;
         this.telefone = telefone;
         this.veiculo = veiculo;
+    }
+
+    public Cliente (Cliente x) {
     }
 
     public int getIdCliente () {

@@ -3,21 +3,23 @@ package com.example.projetospring.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="veiculo")
+@Table(name = "veiculo")
 public class Veiculo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idVeiculos;
     private String marca;
+    @Column(name = "placa", unique = true)
     private String placaDoVeiculo;
     private int ano;
 
     @ManyToOne
-    @JoinColumn(name ="veiculo")
+    @JoinColumn(name = "veiculo")
     private Cliente cliente;
 
-    public Veiculo (){}
+    public Veiculo () {
+    }
 
     public Veiculo (int idVeiculos, String marca, String placaDoVeiculo, int ano, Cliente cliente) {
         this.idVeiculos = idVeiculos;
